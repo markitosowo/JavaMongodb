@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head th:replace="~{fragments/header :: head}"></head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Insertamos el menú -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <!-- Contenido dinámico (Aquí se inyectarán las otras vistas como index.html) -->
+    <main class="container my-4 flex-grow-1">
+        <div th:replace="${content}"></div>
+    </main>
+
+    <!-- Insertamos el pie de página -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+</body>
+</html>
