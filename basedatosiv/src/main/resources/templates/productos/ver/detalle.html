@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/base :: layout(~{::contenido})}">
+<head>
+    <title>Detalle del producto</title>
+</head>
+<body>
+    <div th:fragment="contenido">
+
+        <!-- Apartado 1: Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/productos}">Productos</a></li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="${producto.nombre}">Nombre</li>
+            </ol>
+        </nav>
+
+        <!-- Apartado 2: nombre e _id -->
+        <h3 th:text="${producto.nombre}">Nombre</h3>
+        <span class="text-muted" th:text="${producto.id}">id</span>
+
+        <!-- Apartado 3: campos del producto -->
+        <ul class="list-group mt-4">
+            <li class="list-group-item"><strong>precio:</strong>
+                <span th:text="'$' + ${#numbers.formatDecimal(producto.precio, 1, 'COMMA', 2, 'POINT')}"></span></li>
+            <li class="list-group-item"><strong>categoria:</strong>
+                <span th:text="${producto.categoria}"></span></li>
+            <li class="list-group-item"><strong>stock:</strong>
+                <span th:text="${producto.stock}"></span></li>
+        </ul>
+
+        <a th:href="@{/productos}" class="btn btn-secondary mt-4">
+            <i class="fa-solid fa-arrow-left"></i> Regresar
+        </a>
+    </div>
+</body>
+</html>

@@ -5,13 +5,12 @@
     <title>Página de Inicio</title>
 </head>
 <body>
-    <!-- Este bloque reemplazará al div con layout:fragment="contenido" en base.html -->
     <div th:fragment="contenido">
         <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Bienvenido al Catálogo</h1>
-                <p class="col-md-8 fs-4">La configuración base de la Fase 1 está lista. Muy pronto conectaremos esto con MongoDB.</p>
-                <button class="btn btn-primary btn-lg" type="button">Ver Productos</button>
+                <p class="col-md-8 fs-4">Proyecto Bases de Datos IV: Spring Boot + MongoDB + Thymeleaf.</p>
+                <a class="btn btn-primary btn-lg" th:href="@{/productos}">Ver Productos</a>
             </div>
         </div>
     </div>
